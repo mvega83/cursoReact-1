@@ -1,5 +1,4 @@
 
-
 interface Persona {
     apellidos: string;
     direccion: Direccion;
