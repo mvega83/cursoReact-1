@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 export const Counter = () => {
-    const [cont, setContador] = useState(10);
+    const [cont, setContador] = useState<number>(10);
     const incrementarContador = (value: number)=>{
         setContador(cont+value);
     }
