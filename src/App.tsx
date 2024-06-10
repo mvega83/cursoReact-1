@@ -1,4 +1,7 @@
-import { Counter } from "./components"
+import { 
+  //Counter
+CounterWithHook
+ } from "./components"
 //import { 
 //BasicTypes, 
 //ObjectLiterals,
@@ -15,7 +18,8 @@ function App() {
       {   /*<BasicTypes></BasicTypes>   */}
       {   /*<ObjectLiterals></ObjectLiterals>   */}
       { /* <BasicFunctions></BasicFunctions>   */}
-      <Counter></Counter>
+      {/*<Counter></Counter>*/}
+      <CounterWithHook></CounterWithHook>
       
     </main>
   )
