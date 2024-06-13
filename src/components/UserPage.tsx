@@ -41,16 +41,36 @@ export const UserPage =()=>{
             </tr>
         </thead>
         <tbody>
-            {
+            {/*
             users.map (user => (
             <tr key ={ user.id}>
                 <td><img style={{width:'50px'}}src={user.avatar} alt = "User Avatar"></img></td>
                 <td>{user.first_name} {user.last_name}</td>
                 <td>{user.email}</td>
             </tr>
+            ))*/
+            users.map (users => (
+                <UserFila key ={users.id} user ={users}></UserFila>
             ))
             }
         </tbody>
     </table>
     </>
 }
+
+interface Props {
+    user: User;
+}
+
+export const UserFila = ({user}: Props) => {
+    const {avatar, first_name, last_name, email} = user
+  return (
+    <tr>
+        <td><img style={{width:'50px'}}src={avatar} alt = "User Avatar"></img></td>
+        <td>{first_name} {last_name}</td>
+        <td>{email}</td>
+    </tr>
+  )
+}
+
+export default UserPage
