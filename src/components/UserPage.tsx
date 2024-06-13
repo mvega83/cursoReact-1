@@ -1,6 +1,7 @@
 import axios from "axios"
-import { useEffect } from "react"
-import {  ReqResUserListResponse} from "../interfaces"
+import { useEffect, useState } from "react"
+import {  User, type ReqResUserListResponse} from "../interfaces"
+
 
 const cargarUsuarios = async()=>{
     //const axios.get<ReqResUserListResponse>('https://reqres.in/api/users?page=2')
@@ -20,7 +21,11 @@ const cargarUsuarios = async()=>{
 }
 
 export const UserPage =()=>{
+    const [users, setUsers] = useState<User[]> ([]);
+    
     useEffect(()=>{
+        //cargarUsuarios().then(usuarios=>console.log(usuarios))
+        cargarUsuarios().then(users=>setUsers(users))
         
     },[])
 
@@ -36,11 +41,15 @@ export const UserPage =()=>{
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Avatar</td>
-                <td>Nombre</td>
-                <td>Email</td>
+            {
+            users.map (user => (
+            <tr key ={ user.id}>
+                <td><img style={{width:'50px'}}src={user.avatar} alt = "User Avatar"></img></td>
+                <td>{user.first_name} {user.last_name}</td>
+                <td>{user.email}</td>
             </tr>
+            ))
+            }
         </tbody>
     </table>
     </>
